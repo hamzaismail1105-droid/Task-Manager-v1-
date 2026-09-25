@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>TaskMate - Task Reminder</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>TaskMate</h1>
+      <p>Plan it. Remember it. Finish it.</p>
+    </div>
+    <button id="notifyBtn" class="secondary">Enable 🔔</button>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div><strong id="totalCount">0</strong><span>Total</span></div>
+      <div><strong id="pendingCount">0</strong><span>Pending</span></div>
+      <div><strong id="doneCount">0</strong><span>Completed</span></div>
+    </section>
+
+    <section class="card add-card">
+      <h2>Add a Task</h2>
+      <form id="taskForm">
+        <input id="taskTitle" type="text" placeholder="e.g. Complete Chemistry homework" required>
+        <div class="row">
+          <label>Date<input id="taskDate" type="date" required></label>
+          <label>Time<input id="taskTime" type="time" required></label>
+        </div>
+        <select id="repeat">
+          <option value="none">Does not repeat</option>
+          <option value="daily">Every day</option>
+          <option value="weekly">Every week</option>
+        </select>
+        <button class="primary" type="submit">＋ Add Task</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>My Tasks</h2>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <div id="taskList" class="task-list"></div>
+      <div id="empty" class="empty">No tasks yet. Add your first task above.</div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
